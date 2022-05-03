@@ -1,5 +1,4 @@
 const express = require("express");
-const { nextTick } = require("process");
 // 한줄 한줄 설명 할 수 있는가
 const app = express(); // express method를 실행시킨 결과 = 객체
 const router = require("./routes"); //index.js는 생략가능
