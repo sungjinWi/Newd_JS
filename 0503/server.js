@@ -9,8 +9,8 @@ nunjucks.configure("views",{
     express:app,
 })
 
-app.use(express.json());
-app.use(express.urlencoded({ extended:true , }))
+app.use(express.json()); // json 형식
+app.use(express.urlencoded({ extended:true , })) // string형식으로 data를 받으면 request body로 만든다
 
 app.use(router);
 
