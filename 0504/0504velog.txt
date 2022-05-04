@@ -1,0 +1,22 @@
+get으로도 data를 전달할 수 있다
+querystring
+
+name=sungjin&name2=sungjin2
+key=value&key2=value2
+
+a태그가 get으로 접근하고 http에서 get으로 되면 querystring에 data를 담을수 있다
+
+
+=================
+
+1. 내가 내용을 가져올 수 있는가
+2. 가져온 내용을 HTML에 넘길 수 있는가
+    2.1 template engine개념
+    템플릿 엔진은 변수를 사용하면 변수의 결과물로 HTML을 완성해주는 기능
+
+    render method에서 인자 1: html경로 인자 2: Object
+
+
+input type="text" value="{{name}}하고 value를 수정하면 post할 때 수정된 value로 payload에 담긴다
+
+post도 data를 querystring으로 만들어서 보낸다
