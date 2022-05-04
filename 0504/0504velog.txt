@@ -20,3 +20,5 @@ a태그가 get으로 접근하고 http에서 get으로 되면 querystring에 dat
 input type="text" value="{{name}}하고 value를 수정하면 post할 때 수정된 value로 payload에 담긴다
 
 post도 data를 querystring으로 만들어서 보낸다
+
+global username 설정 안해줬었누....
