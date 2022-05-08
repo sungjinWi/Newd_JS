@@ -8,7 +8,6 @@ const write = (req,res) => {
     res.render("board/write")
 }
 const update = (req,res) => {
-    console.log(req)
     let name = req.query.name
     res.render("board/update",{name:name})
 }
