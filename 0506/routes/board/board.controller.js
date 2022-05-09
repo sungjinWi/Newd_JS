@@ -50,9 +50,10 @@ const update = async (req,res)=> {
 
 const writeAction = async (req,res)=>{
     try {
-        const subject = req.body.subject;
-        const content = req.body.content;
-        const name = req.body.name;
+        // const subject = req.body.subject;
+        // const content = req.body.content;
+        // const name = req.body.name;
+        const {subject, content, name} = req.body;
 
         const sql = `INSERT INTO board(subject,content,name) VALUES(?,?,?);`
         const [result] = await pool.query(sql,[subject, content, name]); 
