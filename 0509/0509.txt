@@ -1,0 +1,96 @@
+CRUD
+alt shift f
+
+write할 때 결과에 insert idx를 알 수 있다
+
+비구조화할당
+
+========================================================
+
+const session = {
+    web7722:true,
+    sungjin:true,
+}
+
+요청보낸게 둘 중 누구인지 모른다
+구분값을 쿠키로 활용
+세션 쿠키
+
+쿠키 : 쿠키
+세션 : 쿠키 + 세션
+
+로그인된 데이터를 누군가 계속 가지고 다녀야 한다
+?idx=1 url 없이 계속 데이터를 전달하려면 쿠키, 세션 필요
+
+========================================================
+
+로그인의 목적은 모든 라우터에서 같은 data를 공유할 수 있도록
+
+req는 브라우저가 서버에 요청 res는 서버가 브라우저에 응답
+
+========================================================
+path expire httpOnly가 살펴보자
+httpOnly를 하면 document.cookie 안나온다
+
+로그인을 했는데 5분 뒤에 풀린다 -> 5분 뒤에 쿠키 삭제
+Max-age : 짧은 시간 5분 10분
+Expires : 기간 설정할 때, 
+
+
+cookie.split(";").map(v=>v.trim())
+
+
+const cookies = cookie.split(';');
+const newArr = [];
+for(let i=0; i<cookies.length; i++){
+    console.log(cookies[i].trim());
+    newArr.push(cookies[i].trim());
+}
+
+
+========================================================
+
+app.use((req,res,next)=>{
+    req.cookie = req.headers.cookie.split("=")[1]
+    next();
+})
+
+app.use("/getcookie",(req,res)=>{
+    res.send("hello")
+    console.log(req.cookie) // 가능
+})
+
+========================================================
+
+reducer
+
+const a =[1,2,3,4,5,6]
+
+let answer = 0;
+
+for(let i=0; i<a.length; i++){
+    answer += a[i]
+}
+
+console.log(answer)
+
+-> 간단하게 reduce로
+
+const result = a.reduce((acc,val)=>acc+val,0)
+
+console.log(result)
+
+arr.map((value,key)) key는 어디에 쓸까?
+arr.reduce((acc,value)) 에서 return이 acc가 된다
+
+========================================================
+let obj = {
+    name:"sungjin"
+}
+
+console.log(obj.name)
+console.log(obj["name"])
+
+CRUD - 데이터의 이동흐름만
+login - 웹의 흐름을 이해
+
