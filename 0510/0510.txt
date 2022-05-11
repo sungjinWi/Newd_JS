@@ -1,0 +1,59 @@
+터미널 이름 변경가능
+
+# React Project 생성
+
+npx create-react-app front
+
+폴더 구조
+
+-back : express를 넣는다
+    npm init -y
+    npm install express
+-front : 리액트 내용을 담고 있다
+
+/*
+    return하는 것들은 jsx로
+
+    그냥 함수만 있는 스크립트는 js로
+*/
+
+웹팩이 3000으로 열어주고 브라우저가 해석하는거라서 CRA의 console은 브라우저에 찍힌다
+
+                    axios
+react   ->  브라우저   ->  express
+        <-            <-
+
+CSR(client Side Rendering)
+
+Custom Hook 세쿠시하다
+        
+const useInput = defaultValue => {
+    const [value,setValue] = React.useState(defaultValue);
+    const onChange = e => {
+        setValue(e.target.value)
+    }
+
+    return {
+        value :value,
+        onChange: onChange
+    }
+
+    ==
+
+    return {
+        value,
+        onChange
+    }
+}
+
+<input {...userid}/>
+
+
+
+let a= 2;
+let b = ()=>console.log("aaa")
+
+let c = {a,b} 
+==let c = {a:a, b:b}
+
+console.log(c) //{ a: 2, b: [Function: b] }

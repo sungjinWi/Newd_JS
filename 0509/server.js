@@ -28,6 +28,7 @@ app.use((req,res,next)=>{ // 이렇게 넣으면 어디서든 req 쓸 수 있음
     },{})
 
     req.cookie = cookies;
+    
 
 
     next(); // next 있으면 다음 미들웨어를 찾는다
@@ -62,7 +63,7 @@ app.get("/setCookie",(req,res)=>{
 
     내가 요청해서 들어온 쿠키를 사용하는것을 해볼 것이다
      */
-    res.setHeader("Set-cookie","name=sungjin; httpOnly=true;" ).send("hello setCookie");
+    res.setHeader("Set-cookie","name2=sungjin; httpOnly=true;" ).send("hello setCookie");
 })
 
 app.listen(3000,console.log("3000 서버 시작"))

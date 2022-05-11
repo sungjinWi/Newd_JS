@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script> 
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> 
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+<body>
+    <div class="root"></div>
+    <script type="text/babel">
+        // react -> HTML
+        // reactdom.render()
+        // 1. React code React.createElement()
+        // 2. body 영역에서 내가 html 만들 영역 root
+
+        // document.querySelector(".root");
+
+
+        //===============================================================
+        // root.render(<div></div>)
+        // console.log(<div class="aa">abc</div>) //props
+        //===============================================================
+
+        // 컴포넌트란 무엇인가 ?
+        // jsx를 반환하는 함수 또는 클래스
+
+        // const App = () => {
+        //     return(
+        //         <div>Hello React</div>
+        //     )
+        // }
+
+        //===============================================================
+
+        // const ABC = (props) => {
+        //     console.log(props)
+        //     return (
+        //         <div>
+        //             hello ABC
+        //             {props.children}
+        //             {props.a}
+        //         </div>
+        //     )
+        // }
+
+        // const App = () => {
+        //     //함수 표현, 함수 호출 정확하게 구분
+        //     const a = ()=> {
+        //         console.log("a")
+        //     }
+
+        //     const list2 = [1,2,3].map(v=> <div>{v}</div>)
+
+        //     const list = [
+        //         <div>1</div>,
+        //         <div>2</div>,
+        //         <div>3</div>
+        //     ]
+
+        //     return (
+        //         <div>
+        //             <ABC onClick={a}>adsadsadsadsadsad</ABC>
+        //             {list2}
+        //             </div>
+        //     )
+        // }
+        //===============================================================
+
+        // 이 코드는 버튼 눌러도 app이 리렌더링 되지 않는다
+        // const App = () => {
+        //     //원래는 const
+        //     let [value,setValue] = React.useState("aaa") //return array 2번째 인자는 상태가 바뀌면 app 컴포넌트 다시 실행하겠다
+        //     console.log(value)
+
+        //     console.log("hello world")
+        //     value = 1
+
+        //     const handleClick = () => {
+        //         value=2
+        //         console.log(value)
+        //     }
+        //     return (
+        //         <div>
+        //             {value}
+        //             <button onClick={handleClick}>버튼</button>
+        //         </div>
+        //     )
+        // }
+
+
+        // useState는 리렌더링 된다
+        // const App = () => {
+        //     //원래는 const
+        //     let [value,setValue] = React.useState("aaa") 
+        //     console.log(value)
+
+        //     console.log("hello world")
+        //     value = 1
+
+        //     const handleClick = () => {
+        //         setValue(2)
+        //         console.log(value)
+        //     }
+        //     return (
+        //         <div>
+        //             {value}
+        //             <button onClick={handleClick}>버튼</button>
+        //         </div>
+        //     )
+        // }
+
+        //===============================================================
+
+        const App = () => {
+            const [value,setValue] = React.useState("aaa") 
+
+            console.log("hello world1")
+
+            React.useEffect( ()=> {
+                console.log("useEffect는 언제 찍힐까?") // return이 끝나고 render 할때 app 컴포넌트가 끝날때
+
+                return () => {console.log("unmount")} // componentWillUnmount app이 사라질때
+            },[]) // componentDidMount랑 []안의 변수가 바뀔 때 (componentDidUpdate) 실행된다
+
+            const handleClick = () => {
+                console.log("handle")
+                setValue(2)
+            }
+
+            console.log("hello world2")
+            return (
+                <div>
+                    {value}
+                    <button onClick={handleClick}>버튼</button>
+                </div>
+            )
+        }
+
+
+        const root = ReactDOM.createRoot(document.querySelector(".root"));
+
+        root.render(<App />) //함수호출이랑 똑같다
+        // root.render(App())
+
+    </script>
+</body>
+</html>
