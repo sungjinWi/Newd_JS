@@ -47,6 +47,7 @@ const useInput = defaultValue => {
 }
 
 <input {...userid}/>
+<input {...userpwd}/>
 
 
 

@@ -3,8 +3,8 @@ const pool = require("../../db")
 const list = async (req,res)=> {
     try {
         const sql = `SELECT * FROM board`
-        const [result] = await pool.query(sql); 
-        // console.log(result);
+        const result = await pool.query(sql); 
+        console.log(result);
 
         res.render("board/list",{
             items:result

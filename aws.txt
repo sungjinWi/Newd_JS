@@ -1,0 +1,100 @@
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y build-essential  
+	c++ 빌드할 때 필요
+sudo apt install net-tools
+
+sudo apt install curl
+	nodejs 설치를 위해 설치한다
+
+nvm설치
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+nvm --version not found
+
+source ~/.bashrc
+
+nvm --version
+
+nvm install node --lts
+
+npm --version
+
+# mysql 3306
+
+sudo apt install mysql-server -y
+
+mysql --version
+
+sudo service mysql start
+sudo service mysql status
+sudo service mysql stop
+
+sudo mysql -uroot //처음이라서 이렇게
+
+# root 계정 패스워드 넣기
+
+ALTER USER 'root'@'localhost ' IDENTIFIED WITH mysql_native_password by "대문자 숫자 포함 Sun13";
+
+mysql -uroot -pSun13
+
+CREATE USER "sungjin"@"%" IDENTIFIED WITH mysql_native_password by "대문자 숫자 포함 Sun13";
+
+grant all privileges on *.* to "sungjin"@"%" with grant option;
+
+FLUSH PRIVILEGES;
+exit
+
+sudo service mysql restart
+
+mysql -usungjin -pSun13
+
+# 외부접속 // 리눅스에서 열어주기
+
+sudo netstat -ntlp | grep mysqld
+
+cd /etc/mysql/mysql.conf.d
+
+ls
+
+sudo vi mysqld.cnf
+
+bind address를 0.0.0.0으로 수정
+
+sudo service mysql restart
+
+# Nginx
+
+웹서버 === express
+
+apache nginx 존나 오래됨
+
+react ->
+ cra npm start
+ webpack devServer
+
+cd ~
+mkdir www
+vi index.html
+브라우저에 ip 치면 index.html이 나오길 바래
+ex )나중에 리액트 빌드된 index.html
+
+sudo apt install nginx
+
+sudo service nginx start
+
+cd /etc/nginx/sites-enabled
+ls
+
+sudo vi default
+
+root와 index만 보면된다
+
+root ~/www/; //세미콜론 필요
+~이 안먹히니까
+root /home/ubuntu/www/;
+
+sudo service nginx restart
+
+sudo nginx -t  하면 오류 검사

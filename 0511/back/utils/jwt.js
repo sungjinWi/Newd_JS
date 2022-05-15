@@ -79,8 +79,7 @@ const createToken = (state) => {
     return `${encodingHeader}.${encodingPayload}.${encodingSignauture}`;
 }
 
-console.log(createToken({name:"ingoo"}))
-
+module.exports = createToken;
 
 /*
     1. JWT 토큰 만들기 구현
@@ -88,7 +87,7 @@ console.log(createToken({name:"ingoo"}))
     2. 로그인 로직 이해하기
         2-1. 로그인 화면 필요
             2-1-1. 리액트 디렉토리 만들어야함
-            
+            2-1-2. 로그인 submit시 요청코드
         2-2. Back 서버에 내용을 전달 (post body(userid,userpw))
         2-3. Back 에서 body(userid,userpw) 읽고,
         2-4. Back에서 userid,userpw 에 대한 DB조회
@@ -97,4 +96,11 @@ console.log(createToken({name:"ingoo"}))
                 쿠키생성 x, 브라우저에게 오류를 전달
             2-5-2. 조회가 되었을떄
                 쿠키생성, 브라우저에 전달
+
+    3. API 설계
+        back 3500
+        front 3000
+
+        POST /user/login {userid,userpw} : cookie
+        POST /user/logout {} : clear cookie
 */

@@ -13,5 +13,7 @@ INSERT INTO board(subject,content,name) VALUES("subject3","content3","name3");
 SELECT * FROM board;
 INSERT INTO board(필드1,필드2...) VALUES(1,2,...)
 
+DROP table board;
+
 UPDATE
 DELETE
