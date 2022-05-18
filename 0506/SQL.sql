@@ -17,3 +17,5 @@ DROP table board;
 
 UPDATE
 DELETE
+
+//index 는 예약어라 `index`
